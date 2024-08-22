@@ -17,4 +17,11 @@ use App\Http\Controllers\WebController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::get('/myshop', [WebController::class, 'myshop'])->name('web.myshop');
+
+require __DIR__.'/auth.php';
